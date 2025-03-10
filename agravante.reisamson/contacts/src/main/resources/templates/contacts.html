@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Google Contacts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        h1 {
+            color: #4285F4;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .contacts-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .phone {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .empty-message {
+            color: #666;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Contacts</h1>
+    
+    <ul class="contacts-list">
+        <li th:each="contact : ${contacts.connections}" class="contact">
+            <div class="name" th:text="${contact.names[0].displayName}">Name</div>
+            <div class="phone" th:text="${contact.phoneNumbers[0].value}">Phone</div>
+        </li>
+    </ul>
+    
+</body>
+</html>
