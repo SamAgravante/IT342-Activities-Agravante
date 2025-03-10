@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Contact</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; padding: 20px;">
+
+<h2 style="color: #1e90ff; text-align: center;">Create New Contact</h2>
+
+<form action="/addcontact" method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <label for="givenName" style="display: block; margin-bottom: 8px; font-weight: bold; color: black;">Given Name:</label>
+    <input type="text" id="givenName" name="givenName" required style="width: 95%; padding: 10px; margin-bottom: 16px; border: 1px solid black; border-radius: 8px;">
+
+    <label for="familyName" style="display: block; margin-bottom: 8px; font-weight: bold; color: black;">Family Name:</label>
+    <input type="text" id="familyName" name="familyName" required style="width: 95%; padding: 10px; margin-bottom: 16px; border: 1px solid black; border-radius: 8px;">
+
+    <label for="email" style="display: block; margin-bottom: 8px; font-weight: bold; color: black;">Email:</label>
+    <input type="email" id="email" name="email" style="width: 95%; padding: 10px; margin-bottom: 16px; border: 1px solid black; border-radius: 8px;">
+
+    <label for="phoneNumber" style="display: block; margin-bottom: 8px; font-weight: bold; color: black;">Phone Number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" style="width: 95%; padding: 10px; margin-bottom: 16px; border: 1px solid black; border-radius: 8px;">
+
+    <button type="submit" style="width: 100%; padding: 12px; background-color: #1e90ff; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 15px">Save Contact</button>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/contacts" style="color: #1e90ff; text-decoration: none; font-weight: bold;">Back to Contacts</a>
+    </div>
+</form>
+
+
+
+</body>
+</html>

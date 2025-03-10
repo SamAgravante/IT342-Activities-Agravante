@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contacts List</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 40px; background-color: #f0f8ff; color: #333;">
+<form action="/logout" method="post">
+    <button type="submit" style="padding: 10px 20px; background-color: red; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px">Logout</button>
+</form>
+<h2 style="color: #1e90ff; text-align: center; font-weight: bold; font-size: 60px">Contact List</h2>
+
+<form action="/add-contact" method="get" style="text-align: center; margin-bottom: 20px;">
+    <button type="submit" style="padding: 10px 20px; background-color: #1e90ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px">Add Contact</button>
+</form>
+
+<table style="width: 100%; border-collapse: collapse; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <thead>
+    <tr>
+        <th style="padding: 12px; text-align: left; background-color: #1e90ff; color: white;">Name</th>
+        <th style="padding: 12px; text-align: left; background-color: #1e90ff; color: white;">Phone Number</th>
+        <th style="padding: 12px; text-align: left; background-color: #1e90ff; color: white;">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contact : ${contacts}" style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 12px;" th:text="${contact.names != null and #lists.size(contact.names) > 0 ? contact.names[0].displayName : 'No name'}"></td>
+        <td style="padding: 12px;">
+            <span th:if="${contact.phoneNumbers != null and #lists.size(contact.phoneNumbers) > 0}" th:text="${contact.phoneNumbers[0].value}"></span>
+            <span th:unless="${contact.phoneNumbers != null and #lists.size(contact.phoneNumbers) > 0}" style="color: gray; font-style: italic;">No phone</span>
+        </td>
+        <td style="padding: 12px; display: flex; gap: 10px;">
+            <form th:action="@{/edit-contact}" method="get" style="margin: 0;">
+                <input type="hidden" name="resourceName" th:value="${contact.resourceName}" />
+                <button type="submit" style="padding: 6px 12px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer;">Edit</button>
+            </form>
+            <form th:action="@{/delete-contact}" method="post" style="margin: 0;">
+                <input type="hidden" name="resourceName" th:value="${contact.resourceName}" />
+                <button type="submit" style="padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer;" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
