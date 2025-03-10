@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="agravante.reisamson/contacts/contacts/src/main/java"/>
+	<classpathentry kind="src" path="agravante.reisamson/oauth2login/oauth2login/src/main/java"/>
+	<classpathentry kind="src" path="agravante.reisamson/oauth2login/oauth2login/src/test/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
